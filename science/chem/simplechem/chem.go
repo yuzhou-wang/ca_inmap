@@ -238,23 +238,23 @@ func (m Mechanism) Chemistry() inmap.CellManipulator {
 		//c.Cf[ipS] += ΔS
 		//c.Cf[igS] -= ΔS
 		totalS := c.Cf[igS] + c.Cf[ipS]
-		c.Cf[ipS] = totalS * c.SPartitioning * c.PMPartitioning
-		c.Cf[igS] = totalS * (1 - c.SPartitioning*c.PMPartitioning)
+		c.Cf[ipS] = totalS * c.SPartitioning
+		c.Cf[igS] = totalS * (1 - c.SPartitioning)
 
 		// NH3 / pNH4 partitioning
 		totalNH := c.Cf[igNH] + c.Cf[ipNH]
-		c.Cf[ipNH] = totalNH * c.NHPartitioning * c.PMPartitioning
-		c.Cf[igNH] = totalNH * (1 - c.NHPartitioning*c.PMPartitioning)
+		c.Cf[ipNH] = totalNH * c.NHPartitioning
+		c.Cf[igNH] = totalNH * (1 - c.NHPartitioning)
 
 		// NOx / pN0 partitioning
 		totalNO := c.Cf[igNO] + c.Cf[ipNO]
-		c.Cf[ipNO] = totalNO * c.NOPartitioning * c.PMPartitioning
-		c.Cf[igNO] = totalNO * (1 - c.NOPartitioning*c.PMPartitioning)
+		c.Cf[ipNO] = totalNO * c.NOPartitioning
+		c.Cf[igNO] = totalNO * (1 - c.NOPartitioning)
 
 		// VOC/SOA partitioning
 		totalOrg := c.Cf[igOrg] + c.Cf[ipOrg]
-		c.Cf[ipOrg] = totalOrg * c.AOrgPartitioning * c.PMPartitioning
-		c.Cf[igOrg] = totalOrg * (1 - c.AOrgPartitioning*c.PMPartitioning)
+		c.Cf[ipOrg] = totalOrg * c.AOrgPartitioning
+		c.Cf[igOrg] = totalOrg * (1 - c.AOrgPartitioning)
 
 		// PM2.5 partitioning - correction
 		// c.Cf[iPM2_5] = c.Cf[iPM2_5] * c.PMPartitioning
